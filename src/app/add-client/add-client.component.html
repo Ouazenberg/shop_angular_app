@@ -1,0 +1,29 @@
+<br>
+    <div class="container" >
+      <div class="card">
+          
+          <!-- Modal Header -->
+          <div class="card-header">
+            <h4 class="modal-title">Add New Client </h4>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="card-body">
+              <form [formGroup]="clientForm" (ngSubmit)=(createClient()) >
+                  <div class="form-group input">
+                    <label>Nom:</label>
+                    <input class="form-control " formControlName="nom">
+                    
+                    <label >Prénom:</label>
+                    <input class="form-control" formControlName="prenom"><br>
+
+                    <button class="btn btn-danger float-right" routerLink="/clients">Cancel</button>
+                    <button class="btn btn-success float-right" type="submit" [disabled]="!clientForm.valid">Create</button>
+
+                  </div>
+              </form>
+          </div>
+          
+        </div>
+      </div>
+

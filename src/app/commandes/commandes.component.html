@@ -1,0 +1,32 @@
+<p></p>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <b>Liste des commandes</b>
+      <button routerLink="/commandes/add" title="new commande" class="btn btn-outline-primary btn-md float-right"  ><i class="fa fa-plus-circle fa-lg"></i></button> 
+    </div>
+    <div class="card-body">
+      <table *ngIf="listCommandes" class="table tab">
+        
+        <tr>
+          <th>ID</th><th>Produit</th><th>Quantité</th><th>Opérations</th>
+        </tr>
+       
+        <tr *ngFor="let com of listCommandes._embedded.commandes">
+          <th>{{com.id}}</th>
+          <th>{{com.produit}}</th>
+          <th>{{com.quantite}}</th>
+          <th>
+            <button (click)="goToEdit(com)"  title="edit" class="btn btn-outline-success btn-md" ><i class="fa fa-pencil-square-o"></i></button>&nbsp;
+            <button (click)="deleteCommande(com)" title="delete" class="btn btn-outline-danger btn-md"><i class="fa fa-trash-o"></i></button>
+          </th> 
+        </tr>
+
+      </table>
+    </div>
+    <div class="container"> 
+        <router-outlet></router-outlet><br>
+    </div>
+  </div>
+</div>
+

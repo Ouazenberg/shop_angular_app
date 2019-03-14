@@ -1,0 +1,40 @@
+<br>
+    <div class="container" >
+      <div class="card">
+          
+          <!-- Modal Header -->
+          <div class="card-header">
+            <h4 class="modal-title">Add New Commande</h4>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="card-body">
+              <form [formGroup]="commandeForm" (ngSubmit)=(insertCommande()) >
+                  <div class="form-group input">
+                    <label>Produit:</label>
+                    <input class="form-control " formControlName="produit">
+                    
+                    <label >Quantité:</label>
+                    <input class="form-control" formControlName="quantite"><br>
+                    <p></p>
+                  </div>
+                  <div class="form-group input" formGroupName="client">
+                      <h3>Client</h3>
+                    
+                    <label>Nom: </label>
+                      <input class="form-control" type="text" formControlName="nom">
+                    
+                    <label>Prénom:</label>
+                      <input class="form-control" type="text" formControlName="prenom">
+                  </div>
+                  <button class="btn btn-danger float-right" routerLink="/commandes">Cancel</button>
+                    <button class="btn btn-success float-right" type="submit" [disabled]="!commandeForm.valid">Create</button>
+              </form>
+
+          </div>
+          
+        </div>
+
+        
+      </div>
+

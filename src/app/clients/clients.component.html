@@ -1,0 +1,26 @@
+<p></p>
+<div class="container">
+  <div class="card card-primary">
+    <div class="card-header"> 
+      <b>Liste des clients</b>
+      <button routerLink="/clients/add" title="new client" class="btn btn-outline-primary btn-md float-right"  ><i class="fa fa-plus-circle fa-lg"></i></button>
+    </div>
+    <div class="card-body">
+      <table *ngIf="listClients" class="table tab">
+        <tr>
+          <th>ID</th><th>Nom</th><th>Prénom</th><th>Opérations</th>
+        </tr>
+        <tr *ngFor="let c of listClients._embedded.clients">
+          <th>{{c.id}}</th>
+          <th>{{c.nom}}</th>
+          <th>{{c.prenom}}</th>
+          <th>
+            <button (click)="goToEdit(c)" title="edit" class="btn btn-outline-success btn-md" ><i class="fa fa-pencil-square-o"></i></button>&nbsp;
+            <button (click)="deleteClient(c)" title="delete" class="btn btn-outline-danger btn-md"><i class="fa fa-trash-o"></i></button>
+          </th>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
